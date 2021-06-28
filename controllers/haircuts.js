@@ -10,17 +10,8 @@ haircutRoutes.get("/",  (req, res) => {
     })
 });
 
-// New
-/*  Here's a route for rendering a new.ejs file just to show I kno to do it in non-React
-*
-*       haircutRouts.get('/new', (req, res) => {
-*           res.render('new.ejs')
-*       })
-*
-*  */
-
 // Delete
-haircutRoutes.route("/:id").delete((req, res) => {
+haircutRoutes.delete("/:id", (req, res) => {
     Haircut.findByIdAndDelete(req.params.id, (err, deletedHaircut) => {
         res.send(deletedHaircut);
     })
@@ -28,7 +19,7 @@ haircutRoutes.route("/:id").delete((req, res) => {
 
 // Updates
 haircutRoutes.put('/update/:id', (req, res) => {
-    Haircut.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedHaircut) => {
+    Haircut.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, (err, updatedHaircut) => {
         res.send(updatedHaircut);
     })
 })
