@@ -11,7 +11,7 @@ haircutRoutes.get("/",  (req, res) => {
 });
 
 // New
-/*  Here's a route for rendering a new.ejs file just to show I know to do it in non-React
+/*  Here's a route for rendering a new.ejs file just to show I kno to do it in non-React
 *
 *       haircutRouts.get('/new', (req, res) => {
 *           res.render('new.ejs')
