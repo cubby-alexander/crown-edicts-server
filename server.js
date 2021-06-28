@@ -24,7 +24,8 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(require("./controllers/haircuts"));
+const haircutController= require("./controllers/haircuts");
+app.use('/haircut', haircutController);
 
 
 // Listeners

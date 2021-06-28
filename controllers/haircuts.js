@@ -4,7 +4,7 @@ const haircutRoutes = express.Router();
 const Haircut = require('../models/Haircut.js');
 
 // Index
-haircutRoutes.get("/haircuts",  (req, res) => {
+haircutRoutes.get("/",  (req, res) => {
     Haircut.find({}, (error, allHaircuts) => {
         res.send(allHaircuts)
     })
@@ -34,7 +34,8 @@ haircutRoutes.put('/update/:id', (req, res) => {
 })
 
 // Create
-haircutRoutes.post("/haircuts/add", (req, res) => {
+haircutRoutes.post("/add", (req, res) => {
+    console.log("Haircut added", req.body);
     Haircut.create(req.body, (err, newHaircut) => {
         res.send(newHaircut);
     });
